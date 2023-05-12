@@ -18,11 +18,12 @@ This guide will help you set up a secure reverse proxy using HAProxy and stunnel
 a. Download and install stunnel for Windows on your local PC from the official website: https://www.stunnel.org/downloads.html
 
 b. Create a new text file named `stunnel.conf` with the following content:
-
+```
 [local_service]
 client = yes
 accept = 127.0.0.1:local_tunnel_port
 connect = remote_server_ip:remote_tunnel_port
+```
 
 vbnet
 Copy code
