@@ -13,7 +13,7 @@ This guide will help you set up a secure reverse proxy using HAProxy and stunnel
 
 ### 1. Set up stunnel
 
-#### Local PC
+#### Local PC NATED BEHIND FIREWALL
 
 a. Download and install stunnel for Windows on your local PC from the official website: https://www.stunnel.org/downloads.html
 
