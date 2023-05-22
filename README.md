@@ -25,8 +25,7 @@ accept = 127.0.0.1:local_tunnel_port
 connect = remote_server_ip:remote_tunnel_port
 ```
 
-vbnet
-Copy code
+
 
 Replace `local_tunnel_port` with an unused local port, `remote_server_ip` with the remote server's IP address, and `remote_tunnel_port` with an unused port on the remote server.
 
@@ -37,8 +36,7 @@ a. Install stunnel on the remote server using the package manager. For example, 
 sudo apt-get install stunnel
 ```
 
-css
-Copy code
+
 
 b. Create or edit the stunnel configuration file at `/etc/stunnel/stunnel.conf` and add the following content:
 ```
@@ -49,8 +47,7 @@ connect = 127.0.0.1:remote_port
 cert = /path/to/cert.pem
 key = /path/to/key.pem
 ```
-markdown
-Copy code
+
 
 Replace `remote_tunnel_port` with the same port used in the local PC's stunnel configuration, `remote_port` with the desired port on the remote server for HAProxy, and `/path/to/cert.pem` and `/path/to/key.pem` with the paths to your SSL certificate and private key files.
 
@@ -63,9 +60,6 @@ a. Run the stunnel executable and specify the configuration file:
 stunnel.exe stunnel.conf
 ```
 
-shell
-Copy code
-
 #### Remote Server
 
 a. Start the stunnel service:
@@ -74,8 +68,7 @@ sudo systemctl enable stunnel
 sudo systemctl start stunnel
 ```
 
-bash
-Copy code
+
 
 ### 3. Configure HAProxy on the remote server
 
@@ -110,8 +103,6 @@ mode tcp
 server local_pc 127.0.0.1:remote_tunnel_port
 ```
 
-vbnet
-Copy code
 
 Replace `public_port` with the desired port on the remote server that you want to expose to the public, and `remote_tunnel_port` with the same port used in the remote server's stunnel configuration (the `accept` parameter).
 
@@ -121,7 +112,5 @@ sudo systemctl enable haproxy
 sudo systemctl start haproxy
 ```
 
-css
-Copy code
 
 Now, you should be able to access the service
